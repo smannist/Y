@@ -1,8 +1,8 @@
 # Yapper
 
 <picture>
-  <source srcset="./client/img/yapper_dark.webp" type="image/webp" />
-  <img src="./client/img/yapper_dark.png" alt="Yapper logo" width="220" />
+  <source srcset="./client/public/img/yapper_dark.webp" type="image/webp" />
+  <img src="./client/public/img/yapper_dark.png" alt="Yapper logo" width="220" />
 </picture>
 
 Yapper is a social media platform akin to X / Bluesky.
