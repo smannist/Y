@@ -39,7 +39,7 @@ const MainNavLeft = (): JSX.Element => {
         onClick={() => setIsMobileNavOpen(false)}
       />
       <nav
-        className={`fixed left-0 top-0 h-screen w-72 flex flex-col p-6 border-r border-gray-200 dark:border-gray-700 bg-yapper-surface dark:bg-yapper-surface-dark z-50 transition-all duration-300 ease-in-out ${
+        className={`fixed left-0 top-0 h-screen w-72 flex flex-col p-6 overflow-y-auto md:overflow-visible border-r border-gray-200 dark:border-gray-700 bg-yapper-surface dark:bg-yapper-surface-dark z-50 transition-all duration-300 ease-in-out ${
           isMobileNavOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
       >
