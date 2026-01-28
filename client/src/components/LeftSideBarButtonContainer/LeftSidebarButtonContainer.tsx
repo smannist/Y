@@ -1,16 +1,11 @@
-import LeftSidebarButton from "./LeftSidebarButton";
+import LeftSidebarButton from "@/components/LeftSidebarButton";
 
-import type { JSX } from "react";
-
-type LeftSidebarButtonContainerProps = {
-  onCreateAccount: () => void;
-  onSignIn: () => void;
-};
+import type { LeftSidebarButtonContainerProps } from "./types";
 
 const LeftSidebarButtonContainer = ({
   onCreateAccount,
   onSignIn,
-}: LeftSidebarButtonContainerProps): JSX.Element => {
+}: LeftSidebarButtonContainerProps) => {
   return (
     <>
       <div className="flex-1" />

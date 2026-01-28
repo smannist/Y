@@ -1,16 +1,16 @@
-import clsx from "clsx";
+import cn from "@/utils/cn";
 
-import MobileNavHeader from "./components/MobileNavHeader";
-import Backdrop from "./components/Backdrop";
-import LeftSidebar from "./components/LeftSidebar";
-import MainContentCenter from "./components/MainContentCenter";
-import ThemeToggler from "./components/ThemeToggler";
+import MobileNavHeader from "@/components/MobileNavHeader";
+import Backdrop from "@/components/Backdrop";
+import LeftSidebar from "@/components/LeftSideBar";
+import MainContentCenter from "@/components/MainContentCenter";
+import ThemeToggler from "@/components/ThemeToggler";
 
-import { useMobileSidebar } from "./hooks/useMobileSidebar";
+import { useMobileSidebar } from "@/hooks/useMobileSidebar";
 
-import type { JSX } from "react";
+const BASE_STYLES = "min-h-screen bg-yapper-surface transition-colors";
 
-const App = (): JSX.Element => {
+const App = () => {
   const {
     isOpen: isMobileSidebarOpen,
     isDesktop,
@@ -27,9 +27,7 @@ const App = (): JSX.Element => {
   };
 
   return (
-    <div
-      className={clsx("min-h-screen", "bg-yapper-surface", "transition-colors")}
-    >
+    <div className={cn(BASE_STYLES)}>
       {!isDesktop && <MobileNavHeader onToggle={toggle} />}
       <Backdrop open={!isDesktop && isMobileSidebarOpen} onDismiss={close} />
       <LeftSidebar
