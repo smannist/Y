@@ -1,7 +1,6 @@
-import type { JSX } from "react";
+import LeftSidebarButton from "./LeftSidebarButton";
 
-import LeftSidebarButtonCreate from "./LeftSidebarButtonCreate";
-import LeftSidebarButtonSignIn from "./LeftSidebarButtonSignIn";
+import type { JSX } from "react";
 
 type LeftSidebarButtonContainerProps = {
   onCreateAccount: () => void;
@@ -16,8 +15,8 @@ const LeftSidebarButtonContainer = ({
     <>
       <div className="flex-1" />
       <div className="space-y-3">
-        <LeftSidebarButtonCreate onClick={onCreateAccount} />
-        <LeftSidebarButtonSignIn onClick={onSignIn} />
+        <LeftSidebarButton variant="create" onClick={onCreateAccount} />
+        <LeftSidebarButton variant="signIn" onClick={onSignIn} />
       </div>
     </>
   );

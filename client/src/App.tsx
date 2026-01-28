@@ -1,7 +1,4 @@
 import clsx from "clsx";
-import { useState, useEffect } from "react";
-import { useMediaQuery } from "@uidotdev/usehooks";
-import type { JSX } from "react";
 
 import MobileNavHeader from "./components/MobileNavHeader";
 import Backdrop from "./components/Backdrop";
@@ -9,26 +6,17 @@ import LeftSidebar from "./components/LeftSidebar";
 import MainContentCenter from "./components/MainContentCenter";
 import ThemeToggler from "./components/ThemeToggler";
 
-const MD_BREAKPOINT = "(min-width: 768px)";
+import { useMobileSidebar } from "./hooks/useMobileSidebar";
+
+import type { JSX } from "react";
 
 const App = (): JSX.Element => {
-  const [isSidebarOpenMobile, setIsSidebarOpenMobile] = useState(false);
-  const isDesktop = useMediaQuery(MD_BREAKPOINT);
-
-  useEffect(() => {
-    if (isDesktop) {
-      // eslint-disable-next-line -- eslint-plugin-react-compiler
-      setIsSidebarOpenMobile(false);
-    }
-  }, [isDesktop]);
-
-  const handleToggleMobileNav = (): void => {
-    setIsSidebarOpenMobile((prev) => !prev);
-  };
-
-  const handleCloseSidebarMobile = (): void => {
-    setIsSidebarOpenMobile(false);
-  };
+  const {
+    isOpen: isMobileSidebarOpen,
+    isDesktop,
+    toggle,
+    close,
+  } = useMobileSidebar();
 
   const handleCreateAccount = (): void => {
     console.log("Create account clicked.");
@@ -40,19 +28,12 @@ const App = (): JSX.Element => {
 
   return (
     <div
-      className={clsx(
-        "min-h-screen",
-        "bg-yapper-surface",
-        "transition-colors"
-      )}
+      className={clsx("min-h-screen", "bg-yapper-surface", "transition-colors")}
     >
-      {!isDesktop && <MobileNavHeader onToggle={handleToggleMobileNav} />}
-      <Backdrop
-        open={!isDesktop && isSidebarOpenMobile}
-        onDismiss={handleCloseSidebarMobile}
-      />
+      {!isDesktop && <MobileNavHeader onToggle={toggle} />}
+      <Backdrop open={!isDesktop && isMobileSidebarOpen} onDismiss={close} />
       <LeftSidebar
-        isSidebarOpenMobile={isSidebarOpenMobile}
+        isSidebarOpenMobile={isMobileSidebarOpen}
         onCreateAccount={handleCreateAccount}
         onSignIn={handleSignIn}
       />
