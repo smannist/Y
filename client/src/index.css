@@ -1,42 +1,5 @@
 @import "tailwindcss";
+@import "./transitions.css";
+@import "./theme.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
-
-@theme {
-  --color-yapper-peach: #f5a773;
-  --color-yapper-coral: #f08080;
-  --color-yapper-pink: #e87b98;
-  --color-yapper-accent: #d1627a;
-  --color-yapper-dark: #000000;
-  --color-yapper-light: #e5e5e5;
-  --color-yapper-bg: #f9fafb;
-  --color-yapper-bg-dark: #0f0f1a;
-  --color-yapper-surface: #ffffff;
-  --color-yapper-surface-dark: #1a1a2e;
-}
-
-/* This part is for the circular reveal effect when toggling the theme, perhaps could be moved to a separate file later.
-   Should work on most browsers. */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-::view-transition-old(root) {
-  z-index: 1;
-}
-
-::view-transition-new(root) {
-  z-index: 9999;
-  animation: reveal 0.7s ease-in-out;
-}
-
-@keyframes reveal {
-  from {
-    clip-path: circle(0% at 50% 50%);
-  }
-  to {
-    clip-path: circle(150% at 50% 50%);
-  }
-}

@@ -12,11 +12,11 @@ const ThemeToggler = (): JSX.Element => {
         "flex items-center justify-center",
         "p-3",
         "rounded-full shadow-lg",
-        "border border-gray-200 dark:border-gray-700",
-        "bg-white dark:bg-gray-800",
+        "border border-yapper-border",
+        "bg-yapper-surface",
         "cursor-pointer",
         "transition-colors",
-        "hover:bg-gray-100 dark:hover:bg-gray-700",
+        "hover:bg-yapper-hover",
       )}
       aria-label="Toggle theme"
       type="button"

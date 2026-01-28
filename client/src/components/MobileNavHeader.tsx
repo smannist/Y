@@ -20,8 +20,8 @@ const MobileNavHeader = ({ onToggle }: MobileNavHeaderProps): JSX.Element => {
         "fixed top-0 left-0 right-0 z-40",
         "flex items-center",
         "h-16 px-4",
-        "border-b border-gray-200 dark:border-gray-700",
-        "bg-yapper-surface dark:bg-yapper-surface-dark",
+        "border-b border-yapper-border",
+        "bg-yapper-surface",
         "transition-colors",
       )}
     >
@@ -32,14 +32,12 @@ const MobileNavHeader = ({ onToggle }: MobileNavHeaderProps): JSX.Element => {
           "rounded-lg",
           "cursor-pointer",
           "transition-colors",
-          "hover:bg-gray-100 dark:hover:bg-gray-700",
+          "hover:bg-yapper-hover",
         )}
         aria-label="Toggle menu"
         type="button"
       >
-        <Menu
-          className={clsx("h-6 w-6", "text-yapper-dark dark:text-yapper-light")}
-        />
+        <Menu className={clsx("h-6 w-6", "text-yapper-text")} />
       </button>
       <div className="ml-2">
         <YapperLogoContainer size="small" />

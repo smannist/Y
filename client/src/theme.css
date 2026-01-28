@@ -1,0 +1,27 @@
+:root {
+  --yapper-surface-value: oklch(100% 0 0);
+  --yapper-bg-value: oklch(98.5% 0.002 247);
+  --yapper-text-value: oklch(0% 0 0);
+  --yapper-border-value: oklch(90% 0.01 250);
+  --yapper-hover-value: oklch(96% 0.01 250);
+}
+
+.dark {
+  --yapper-surface-value: oklch(22% 0.035 285);
+  --yapper-bg-value: oklch(11% 0.025 285);
+  --yapper-text-value: oklch(92% 0 0);
+  --yapper-border-value: oklch(34% 0.02 260);
+  --yapper-hover-value: oklch(34% 0.02 260);
+}
+
+@theme {
+  --color-yapper-surface: var(--yapper-surface-value);
+  --color-yapper-bg: var(--yapper-bg-value);
+  --color-yapper-text: var(--yapper-text-value);
+  --color-yapper-border: var(--yapper-border-value);
+  --color-yapper-hover: var(--yapper-hover-value);
+  --color-yapper-peach: #f5a773;
+  --color-yapper-coral: #f08080;
+  --color-yapper-pink: #e87b98;
+  --color-yapper-accent: #d1627a;
+}

@@ -42,8 +42,8 @@ const App = (): JSX.Element => {
     <div
       className={clsx(
         "min-h-screen",
-        "bg-yapper-surface dark:bg-yapper-surface-dark",
-        "transition-colors",
+        "bg-yapper-surface",
+        "transition-colors"
       )}
     >
       {!isDesktop && <MobileNavHeader onToggle={handleToggleMobileNav} />}

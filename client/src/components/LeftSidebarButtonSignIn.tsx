@@ -15,7 +15,7 @@ const LeftSidebarButtonSignIn = ({
         "w-full py-3",
         "rounded-full",
         "border-2 border-yapper-pink",
-        "font-semibold text-yapper-dark dark:text-yapper-light",
+        "font-semibold text-yapper-text",
         "cursor-pointer",
         "transition-colors",
         "hover:bg-yapper-pink/10",

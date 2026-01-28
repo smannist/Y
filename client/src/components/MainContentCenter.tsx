@@ -14,7 +14,7 @@ const MainContentCenter = (): JSX.Element => {
       <h1
         className={clsx(
           "font-bold text-small",
-          "text-yapper-dark dark:text-yapper-light",
+          "text-yapper-text",
           "transition-colors",
         )}
       >
