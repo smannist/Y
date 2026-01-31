@@ -24,9 +24,13 @@ const TimelinePostContainer = () => {
     error,
   } = useQuery({
     queryKey: mockPostsQueryKey(mockPostsUrl),
-    queryFn: mockPostsQueryFn(mockPostsUrl),
-    staleTime: CACHE_TIME, // use cache for now since it's just static mocked data at db change later!
+    queryFn: mockPostsQueryFn(mockPostsUrl, CACHE_TIME),
+    // use local cache for now not really needed but really for testing purposes
+    staleTime: CACHE_TIME,
     gcTime: CACHE_TIME,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    refetchOnMount: false,
   });
 
   return (
