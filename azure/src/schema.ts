@@ -2,7 +2,7 @@ import { mssqlSchema, int, nvarchar, datetime2 } from "drizzle-orm/mssql-core";
 
 const dbo = mssqlSchema("dbo");
 
-export const mockPosts = dbo.table("MockPosts", {
+export const timelinePost = dbo.table("MockPosts", {
   id: nvarchar({ length: 50 }).primaryKey(),
   userId: nvarchar({ length: 50 }).notNull(),
   name: nvarchar({ length: 100 }).notNull(),

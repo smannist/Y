@@ -2,12 +2,13 @@
 import type { QueryFunction } from "@tanstack/react-query";
 import type { TimelinePostData } from "@/components/TimelinePost/types";
 
-export const mockPostsQueryKey = (url: string) => ["mock-posts", url] as const;
+export const postsQueryKey = (url: string) => ["posts", url] as const;
 
-export const mockPostsQueryFn =
+// use local cache for now, dont really need it but just testing -> delete later.
+export const postsQueryFn =
   (url: string, cacheTimeMs = 0): QueryFunction<TimelinePostData[]> =>
   async () => {
-    const cacheKey = `mock-posts:${url}`;
+    const cacheKey = `posts:${url}`;
     if (cacheTimeMs > 0 && typeof window !== "undefined") {
       try {
         const cached = localStorage.getItem(cacheKey);
@@ -29,13 +30,14 @@ export const mockPostsQueryFn =
       }
     }
 
-    const mockPostsResponse = await fetch(url);
-    if (!mockPostsResponse.ok) {
+    const postsResponse = await fetch(url);
+    if (!postsResponse.ok) {
       throw new Error(
-        `Failed to fetch mock posts: ${mockPostsResponse.status} ${mockPostsResponse.statusText}`,
+        `Failed to fetch posts: ${postsResponse.status} ${postsResponse.statusText}`,
       );
     }
-    const data = (await mockPostsResponse.json()) as TimelinePostData[];
+
+    const data = (await postsResponse.json()) as TimelinePostData[];
     if (cacheTimeMs > 0 && typeof window !== "undefined") {
       try {
         localStorage.setItem(
@@ -46,5 +48,6 @@ export const mockPostsQueryFn =
         // Ignore write failures (storage quota, privacy mode, etc).
       }
     }
+
     return data;
   };

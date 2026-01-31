@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { mockPostsQueryFn, mockPostsQueryKey } from "@/queries/mockPosts.query";
+import { postsQueryFn, postsQueryKey } from "@/queries/posts.query";
 
 import cn from "@/utils/cn";
 import TimelinePost from "@/components/TimelinePost";
@@ -13,9 +13,9 @@ import {
 } from "./consts";
 
 const TimelinePostContainer = () => {
-  const mockPostsUrl = import.meta.env.DEV
-    ? "/api/mock-posts"
-    : `${(import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/+$/, "")}/api/mock-posts`;
+  const postsUrl = import.meta.env.DEV
+    ? "/api/posts"
+    : `${(import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/+$/, "")}/api/posts`;
 
   const {
     data = [],
@@ -23,9 +23,8 @@ const TimelinePostContainer = () => {
     isError,
     error,
   } = useQuery({
-    queryKey: mockPostsQueryKey(mockPostsUrl),
-    queryFn: mockPostsQueryFn(mockPostsUrl, CACHE_TIME),
-    // use local cache for now not really needed but really for testing purposes
+    queryKey: postsQueryKey(postsUrl),
+    queryFn: postsQueryFn(postsUrl, CACHE_TIME),
     staleTime: CACHE_TIME,
     gcTime: CACHE_TIME,
     refetchOnWindowFocus: false,
