@@ -45,12 +45,8 @@ const TimelinePostContainer = () => {
               <div className="mt-2 text-sm text-yapper-text/80">
                 {error.message}
               </div>
-              <div className="mt-2 text-xs text-yapper-text/60 break-all">
-                URL: {mockPostsUrl}
-              </div>
             </div>
           )}
-
           {!isLoading &&
             !isError &&
             data.map((post) => <TimelinePost key={post.id} post={post} />)}
